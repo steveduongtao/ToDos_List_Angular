@@ -1,0 +1,24 @@
+<app-author-detail
+    *ngFor="let author of authors;let i = index" [attr.data-index]="i" 
+   
+    [author]="author" 
+    (select)="onSelected($event)" 
+    (select1)="onSelected1($event)"
+    (delete)="onDelete($event)"
+    (deleteNew)="onDeleteNew($event)"
+    (authorEdit) = "onEdit($event)"
+    >
+</app-author-detail>
+<div style="color:red">
+  current user : {{currentAuthor?.firstName}} {{currentAuthor?.lastName}}
+</div>
+<div>
+  current user+1: {{currentAuthor1?.firstName}} {{currentAuthor1?.lastName}}
+</div>
+<input type="text" [(ngModel)]="currentAuthorFirstNameEdit" >
+<input type="text" [(ngModel)]="currentAuthorLastNameEdit" >
+ 
+<button (click)="onModify()">OK</button>
+<button (click)="addAuthor()">THEM</button>
+<h1>{{currentAuthorFirstNameEdit}}</h1>
+<h1>{{currentAuthorLastNameEdit}}</h1>

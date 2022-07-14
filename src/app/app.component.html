@@ -1,0 +1,34 @@
+<!-- app component -->
+{{ theName }}
+<app-task></app-task>
+<p>{{ user.name }}</p>
+<p>{{ user.age }}</p>
+<input [type]="inputType" [value]="user.name" />
+<button type="button" (click)="handler()">clickme</button>
+<input type="inputType" [(ngModel)]="theName" />
+<app-task *ngIf="+user.age >= 18; else under18"></app-task>
+<ng-template #under18>
+  <div>You are too young to see this content</div>
+</ng-template>
+<button (click)="user.age = user.age - 1">-</button>
+Age:{{ user.age }}
+<button (click)="user.age = user.age + 1">+</button>
+<!-- //name -id -phoneNumber -->
+<ol>
+  <li *ngFor="let inf of user2">
+    -{{ inf.name }} - {{ inf.email }} -{{ inf.phone }}
+  </li>
+</ol>
+<!-- //day6 classbinddinng -->
+<button (click)="isDanger = !isDanger">Toogle Danger</button>
+<button (click)="isWarning = !isWarning">Toogle Warning</button>
+<div class="box" [class.red-background]="isDanger"></div>
+<div class="box" [class.yellow-background]="isWarning"></div>
+<!-- //style binding -->
+<button (click)="currentProgress = currentProgress + 1">
+  click to increaseProgress >>
+</button>
+<app-task2 [progress]="currentProgress" [progressColor]="'green'"></app-task2>
+<br />
+<app-task2></app-task2>
+<app-author></app-author>
